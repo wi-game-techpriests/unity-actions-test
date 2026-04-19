@@ -63,3 +63,22 @@ jobs:
         with:
           name: Build
           path: build
+  
+  deploy:
+    needs: build
+    name: deploy to gh pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: Build
+          path: build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build/WebGL
