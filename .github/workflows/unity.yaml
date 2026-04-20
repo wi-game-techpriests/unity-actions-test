@@ -56,7 +56,8 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          unityVersion: 6000.4.3f1
+          unityVersion: 6000.4.2f1
+          buildProfile: 'Assets/Settings/Build Profiles/Web - Mobile - Development.asset'
 
       # Output
       - uses: actions/upload-artifact@v4
